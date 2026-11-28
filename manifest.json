@@ -1,6 +1,6 @@
 {
   "name": "SocialInv",
-  "short_name": "socialinv",
+  "short_name": "SocialInv",
   "description": "Red social móvil con color adaptativo",
   "start_url": "./index.html",
   "scope": "./",
