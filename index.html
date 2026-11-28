@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#fff" id="metaThemeColor">
+    <title>socialinv</title>
+    <!-- Librería ColorThief para extraer el color dominante de las publicaciones (lógica de Home.html) -->
+    <script src="source/js/lib/colorthief-lite.js"></script>
+    <script src="source/js/lib/svcolor.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="source/imgs/icon-192.png">
+    <link rel="stylesheet" href="source/css/social.css">
+    <link rel="stylesheet" href="source/css/polish.css">
+    <link rel="stylesheet" href="source/css/design.css">
+    <link rel="stylesheet" href="source/css/redesign.css">
+    <link rel="stylesheet" href="source/css/neutral.css">
+</head>
+<body>
+<div id="appFrame">
+<div class="PBOcult1 GenPBOcult"></div>
+
+<div class="cbcx" id="cbcx">
+  <div class="cbcx-bar">
+    <img class="foto" id="cbcxFoto" src="source/imgs/user-default.png" alt="Mi perfil" onerror="this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='">
+    <div class="cbcx-brand" aria-label="SOCIALINV">SOCIALINV</div>
+    <div class="hd-hello"><small id="hdGreet">Hola</small><b id="hdName">@usuario</b></div>
+    <button type="button" class="hd-btn" id="hdSearch" aria-label="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></button>
+    <div class="stories-trigger" id="storiesTrigger"></div>
+    <div class="mas" id="masBtn"><svg viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+  </div>
+</div>
+
+<div class="feed" id="feedContainer">
+  <div class="stories-row" id="storiesRow"></div>
+  <div class="feed-seg" id="feedSeg" role="tablist"><button type="button" class="on" data-feed="all">Para ti</button><button type="button" data-feed="following">Siguiendo</button><i></i></div>
+  
+  <div class="post" data-post-id="post-static-1">
+    <div class="post-header">
+      <div class="post-avatar" data-username="yorss01"><img src="source/imgs/user-default.png" alt="" style="background:#555"></div>
+      <div class="post-userinfo">
+        <div class="post-username" data-username="yorss01">yorss01</div>
+        <div class="post-meta">Ciudad de México · Hace 20 m</div>
+      </div>
+      <div class="post-options" data-post-options="post-static-1"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></div>
+    </div>
+    
+    
+    <div class="post-grid count-3" data-files='["source/imgs/demo/photo-151784190524.svg","source/imgs/demo/photo-152207182008.svg","source/imgs/demo/photo-153129748400.svg"]'>
+        <div class="grid-item"><img src="source/imgs/demo/photo-151784190524.svg" alt=""></div>
+        <div class="grid-item"><img src="source/imgs/demo/photo-152207182008.svg" alt=""></div>
+        <div class="grid-item"><img src="source/imgs/demo/photo-153129748400.svg" alt=""></div>
+    </div>
+
+    <div class="post-actions">
+      <div class="post-action like"><svg class="icon-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+      <div class="post-action comment"><svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.1-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg></div>
+      <div class="post-action share" data-post-share="post-static-1"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+      <div class="post-action save" onclick="this.classList.toggle('active')"><svg viewBox="0 0 24 24"><path d="M19 21 12 16 5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+    </div>
+    <div class="post-stats-row">
+      <div class="stat-item liked"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" fill="#000" stroke="#000"/></svg><span class="like-count" data-count="1">1</span></div>
+      <div class="stat-item"><svg viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.1-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg><span class="comment-count" data-count="1">1</span></div>
+      <div class="stat-item"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span class="share-count" data-count="0">0</span></div>
+    </div>
+    <div class="post-caption"><b>yorss01</b>Atardecer desde la azotea. Hoy todo se ve distinto.</div>
+    <div class="post-time">Hace 20 m</div>
+  </div>
+</div>
+
+<div class="reels-view" id="reelsView">
+    <div class="reels-scroll" id="reelsScroll"></div>
+</div>
+
+
+<div class="PBOcult2 GenPBOcult"></div>
+
+<nav class="navbar" aria-label="Navegación principal">
+  <span class="nav-icon active" data-tab="home" role="button" tabindex="0" aria-label="Inicio" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg><em>Inicio</em></span>
+  <span class="nav-icon" data-tab="search" role="button" tabindex="0" aria-label="Descubrir"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg><em>Descubrir</em></span>
+  <button type="button" class="nav-create" id="navCreate" aria-label="Crear"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+  <span class="nav-icon" data-tab="reels" role="button" tabindex="0" aria-label="Reels"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M10 8.5v7l5.5-3.5z"/></svg><em>Reels</em></span>
+  <span class="nav-icon" data-tab="messages" role="button" tabindex="0" aria-label="Mensajes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.1-4.3A8.5 8.5 0 1 1 20.5 12z"/></svg><em>Mensajes</em><b class="nav-dot"></b></span>
+</nav>
+
+<div class="story-fs-overlay" id="storyFsOverlay"></div>
+<div class="story-fs" id="storyFs">
+    <div class="story-progress" id="storyFsProgress"></div>
+    <div class="story-fs-header">
+        <div class="avatar"><img id="storyFsAvatar" src="" alt=""></div>
+        <div class="username" id="storyFsUsername"></div>
+        <div class="time" id="storyFsTime"></div>
+        <div class="close-btn" id="storyFsClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="story-fs-body" id="storyFsBody">
+        <div class="story-slide" id="storySlidePrev" data-role="prev">
+          <img class="story-slide-img" alt=""><video class="story-slide-video" muted playsinline></video>
+        </div>
+        <div class="story-slide" id="storySlideCurrent" data-role="current">
+          <img class="story-slide-img" alt=""><video class="story-slide-video" muted playsinline></video>
+        </div>
+        <div class="story-slide" id="storySlideNext" data-role="next">
+          <img class="story-slide-img" alt=""><video class="story-slide-video" muted playsinline></video>
+        </div>
+    </div>
+    <div class="story-fs-footer">
+        <input type="text" id="storyFsReplyInput" placeholder="Enviar mensaje..." maxlength="500">
+        <div class="action-btn like-btn"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <div class="action-btn" id="storyFsReplySend"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+    </div>
+</div>
+
+<div class="media-viewer" id="mediaViewer">
+    <div class="mv-header"><div class="mv-close" onclick="closeTopNavView()"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></div>
+    <div class="mv-carousel" id="mvCarousel"></div>
+    <div class="mv-dots" id="mvDots"></div>
+</div>
+
+<div class="profile-overlay" id="profileOverlay"></div>
+<div class="profile-panel" id="profilePanel" role="dialog" aria-modal="true" aria-label="Perfil">
+
+  <div class="pf-cover-wrap">
+    <div class="pf-fade-top"></div>
+    <img id="pfPortada" class="pf-cover-img" src="source/imgs/demo/cover-161800518238.svg" alt="portada">
+    <div class="pf-fade-bottom"></div>
+  </div>
+
+  <div class="pf-header-zone">
+    <header class="pf-topnav">
+      <button class="circle-btn back" id="pfBackBtn" aria-label="Volver">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      </button>
+      <h1 class="pf-nav-title" id="pfUsername">usuario</h1>
+      <div class="pf-nav-right" id="pfNavRight">
+        <button class="circle-btn" id="pfCreateBtn" title="Crear">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <button class="circle-btn" id="pfMenuBtn" title="Menú">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="pf-profile-row">
+      <div class="pf-avatar-wrap">
+        <div class="pf-anillo"><img id="pfUserImg" src="" alt="user"></div>
+      </div>
+      <div class="pf-stats-card">
+        <div class="pf-stats-name" id="pfDisplayName"></div>
+        <div class="pf-stats-row">
+          <div class="pf-stat" id="pfStatPostsBtn"><span class="pf-stat-val" id="pfStatPosts">0</span><span class="pf-stat-label">Pulsos</span></div>
+          <div class="pf-stat" id="pfStatFollowersBtn"><span class="pf-stat-val" id="pfStatFollowers">0</span><span class="pf-stat-label">Seguidores</span></div>
+          <div class="pf-stat" id="pfStatFollowingBtn"><span class="pf-stat-val" id="pfStatFollowing">0</span><span class="pf-stat-label">Seguidos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pf-bio-row">
+      <p class="pf-bio-text" id="pfBio"><strong></strong></p>
+      <div class="pf-social-tags" id="pfSocialTags"></div>
+    </section>
+
+    <section class="pf-actions" id="pfActions"></section>
+
+    <div id="pfDecorLayer"></div>
+    <div class="pf-decorate-fab" id="pfDecorateFab">
+      <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+    </div>
+  </div>
+
+  <main class="pf-bottom-sheet">
+    <div class="pf-lock" id="pfLock">
+      <div class="pf-lock-icon"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+      <b>Esta cuenta es privada</b>
+      <span>Sigue a <em data-lock-user></em> para ver sus pulsos y su actividad.</span>
+    </div>
+    <div class="pf-tabs">
+      <button class="pf-tab-btn pf-tab-info active" data-pf-target="pf-tab-info">
+        <svg class="pf-tab-icon" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </button>
+      <button class="pf-tab-btn pf-tab-posts" data-pf-target="pf-tab-posts">
+        <svg class="pf-tab-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1.5"></rect><line x1="10" y1="3" x2="10" y2="21"></line><line x1="16" y1="3" x2="16" y2="21"></line><line x1="3" y1="10" x2="21" y2="10"></line><line x1="3" y1="16" x2="21" y2="16"></line></svg>
+      </button>
+      <button class="pf-tab-btn pf-tab-shared" data-pf-target="pf-tab-shared">
+        <svg class="pf-tab-icon" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="M7 22l-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg>
+      </button>
+    </div>
+
+    <div class="pf-content-wrapper">
+      <div id="pf-tab-info" class="pf-tab-content active">
+        <div class="pf-info-card">
+          <ul class="pf-info-list" id="pfInfoList"></ul>
+        </div>
+      </div>
+
+      <div id="pf-tab-posts" class="pf-tab-content">
+        <div class="pf-posts-grid" id="pfPostsGrid"></div>
+      </div>
+
+      <div id="pf-tab-shared" class="pf-tab-content">
+        <div class="pf-shared-list" id="pfSharedList"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="pf-decor-modebar" id="pfDecorModebar">
+  <span>Modo decorar · arrastra, gira o agranda</span>
+  <div class="pf-decor-actions">
+    <button class="pf-decor-btn add" id="pfDecorAddBtn">Añadir ícono</button>
+    <button class="pf-decor-btn done" id="pfDecorDoneBtn">Listo</button>
+  </div>
+</div>
+
+<div class="pf-sticker-overlay" id="pfStickerOverlay"></div>
+<div class="pf-sticker-sheet" id="pfStickerSheet">
+  <div class="cd-title">Elige una decoración</div>
+  <div class="pf-sticker-grid" id="pfStickerGrid"></div>
+</div>
+
+<div class="pf-feed-modal" id="pfFeedModal">
+  <header class="bar">
+    <div class="circle-btn back" id="pfFeedBackBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </div>
+    <div class="title" id="pfFeedTitle">Pulsos</div>
+    <div style="width:44px;flex-shrink:0;"></div>
+  </header>
+  <div class="pf-feed-scroll" id="pfFeedScroll"></div>
+</div>
+
+<div class="pf-editor" id="pfEditor">
+  <div class="composer-header">
+    <div class="composer-close" id="pfEditorClose"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></div>
+    <div class="composer-title">Editar perfil</div>
+    <button class="composer-publish" id="pfEditorSave">Guardar</button>
+  </div>
+  <div class="pf-editor-body">
+    <div class="pf-editor-cover-wrap" id="pfEditorCoverWrap">
+      <img id="pfEditorCoverImg" src="" alt="portada">
+      <div class="pf-editor-cover-overlay"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+    </div>
+    <div class="pf-editor-avatar-row">
+      <div class="pf-editor-avatar-wrap" id="pfEditorAvatarWrap">
+        <img id="pfEditorAvatarImg" src="" alt="avatar">
+        <div class="pf-editor-cover-overlay"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      </div>
+    </div>
+    <input type="file" id="pfCoverFileInput" accept="image/*" style="display:none">
+    <input type="file" id="pfAvatarFileInput" accept="image/*" style="display:none">
+
+    <div class="pf-editor-field">
+      <label>Nombre de usuario</label>
+      <div class="pf-editor-username-input"><span>@</span><input type="text" id="pfEditorUsername" maxlength="24"></div>
+    </div>
+    <div class="pf-editor-field">
+      <label>Nombre</label>
+      <input type="text" id="pfEditorName" maxlength="40">
+    </div>
+    <div class="pf-editor-field">
+      <label>Biografía</label>
+      <textarea id="pfEditorBio" maxlength="160"></textarea>
+      <span class="pf-editor-char-count" id="pfEditorBioCount">0/160</span>
+    </div>
+
+    <div class="pf-editor-section-title">Información personal</div>
+    <div class="pf-editor-grid2">
+      <div class="pf-editor-field"><label>Gusto musical</label><input type="text" id="pfEditorInfo0"></div>
+      <div class="pf-editor-field"><label>Intereses</label><input type="text" id="pfEditorInfo1"></div>
+      <div class="pf-editor-field"><label>Hobbies</label><input type="text" id="pfEditorInfo2"></div>
+      <div class="pf-editor-field"><label>Ubicación</label><input type="text" id="pfEditorInfo3"></div>
+    </div>
+
+    <div class="pf-editor-section-title">Redes sociales</div>
+    <div class="pf-editor-links-list" id="pfEditorLinksList"></div>
+    <button type="button" class="pf-editor-add-link-btn" id="pfEditorAddLinkBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      Añadir enlace
+    </button>
+
+    <div class="pf-editor-section-title">Decoraciones del perfil</div>
+    <div class="pf-editor-decor-row">
+      <button type="button" class="pf-editor-decorate-btn" id="pfEditorDecorateBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+        Decorar perfil
+      </button>
+      <label class="pf-editor-color-wheel" id="pfEditorColorWheelLabel" title="Tono de las decoraciones">
+        <input type="color" id="pfEditorDecorColor" value="#000000">
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="post-options-overlay" id="postOptionsOverlay"></div>
+<div class="post-options-menu" id="postOptionsMenu">
+  <div class="post-options-item danger" id="postOptionsDelete">Eliminar pulso</div>
+  <div class="post-options-item" id="postOptionsCopyLink">Copiar enlace</div>
+  <div class="post-options-item cancel" id="postOptionsCancel">Cancelar</div>
+</div>
+
+<div class="search-view" id="searchView">
+  <div class="dv-top">
+    <button type="button" class="circle-btn back" id="searchBackBtn" aria-label="Volver" hidden><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+    <h1 class="dv-title">Descubrir</h1>
+    <img class="dv-me" id="dvMe" src="source/imgs/user-default.png" alt="Mi perfil">
+  </div>
+  <div class="search-input-wrap">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+    <input type="text" id="searchInput" placeholder="Personas, pulsos, reels…" autocomplete="off">
+    <button type="button" class="dv-clear" id="dvClear" aria-label="Borrar" hidden><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></button>
+  </div>
+  <div class="search-tabs" id="searchTabs">
+    <div class="search-tab active" data-search-tab="all">Todo</div>
+    <div class="search-tab" data-search-tab="users">Personas</div>
+    <div class="search-tab" data-search-tab="posts">Pulsos</div>
+    <div class="search-tab" data-search-tab="reels">Reels</div>
+    <div class="search-tab" id="auraTab">Aura</div>
+  </div>
+  <div class="dv-scroll" id="dvScroll">
+    <div class="dv-home" id="dvHome"></div>
+    <div class="search-results" id="searchResults"></div>
+    <div class="dv-posts" id="searchPosts" style="display:none"></div>
+    <div class="search-reels-grid" id="searchReelsGrid" style="display:none;"></div>
+    <div class="aura-panel" id="auraPanel" hidden><div class="aura-chips" id="auraChips" role="tablist"></div><div class="aura-grid" id="auraGrid"></div></div>
+  </div>
+  <div class="search-add-friends" id="searchAddFriends" hidden></div>
+</div>
+
+<div class="messenger-view" id="messengerView">
+  <div class="messenger-header">
+    <button type="button" class="circle-btn back" id="messengerBackBtn" aria-label="Volver" hidden><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></button>
+    <h1 class="title">Mensajes</h1>
+    <button type="button" class="mh-compose" id="messengerComposeBtn" aria-label="Nuevo mensaje"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></button>
+    <img class="dv-me" id="msgMe" src="source/imgs/user-default.png" alt="Mi perfil">
+  </div>
+  <div class="ml-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg><input type="text" id="mlSearch" placeholder="Buscar conversaciones" autocomplete="off"></div>
+  <div class="ml-seg" id="mlSeg"><button type="button" class="on" data-f="all">Todos</button><button type="button" data-f="unreplied">Sin responder</button></div>
+  <div class="chat-list" id="chatList"></div>
+</div>
+
+<div class="chat-window bg-default" id="chatWindow">
+  <div class="chat-bg-layer" id="chatBgLayer"></div>
+  <div class="chat-bg-overlay"></div>
+  <div class="chat-window-header" id="chatWindowHeader">
+    <div class="cwh-back" id="chatWindowBackBtn">
+      <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </div>
+    <div class="cwh-avatar-wrap">
+      <img class="cw-avatar" id="chatWindowAvatar" src="" alt="">
+      <div class="cwh-online"></div>
+    </div>
+    <div class="cwh-info">
+      <div class="cw-username" id="chatWindowUsername"></div>
+      <div class="cw-status" id="chatWindowStatus">En línea</div>
+    </div>
+    <div class="cwh-actions">
+      <div class="cwh-action-btn" id="chatCallBtn">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.11h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.9-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div class="cwh-action-btn" id="chatVideoBtn">
+        <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      </div>
+      <div class="cwh-action-btn" id="chatSearchBtn">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="cwh-action-btn" id="chatSettingsBtn">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="chat-search-bar" id="chatSearchBar">
+    <svg class="csb-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="chatSearchInput" placeholder="Buscar en la conversación…" autocomplete="off">
+    <div class="csb-count" id="csbCount"></div>
+    <div class="csb-nav" id="csbPrev"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+    <div class="csb-nav" id="csbNext"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="csb-close" id="csbClose"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></div>
+  </div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-rec-indicator" id="chatRecIndicator">
+    <div class="rec-dot"></div>
+    <div class="rec-timer" id="chatRecTimer">0:00</div>
+    <div class="rec-cancel" id="chatRecCancel">Cancelar</div>
+    <div class="rec-send-btn" id="chatRecSend"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" fill="#000"/></svg></div>
+  </div>
+  <div class="chat-input-wrap" id="chatInputWrap">
+    <div class="chat-reply-preview" id="chatReplyPreview">
+      <div class="crp-bar"></div>
+      <div class="crp-body">
+        <div class="crp-to" id="crpTo">Respondiendo a</div>
+        <div class="crp-text" id="crpText"></div>
+      </div>
+      <div class="crp-close" id="crpClose"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></div>
+    </div>
+    <div class="chat-input-bar" id="chatInputBar">
+      <div class="cib-left" id="cibLeft">
+        <div class="cib-btn" id="chatPhotoBtn" title="Adjuntar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+        </div>
+        <div class="cib-btn record-btn" id="chatRecordBtn" title="Grabar audio">
+          <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+      </div>
+      <textarea class="chat-textarea" id="chatTextarea" placeholder="Mensaje…" rows="1" maxlength="2000"></textarea>
+      <div class="chat-textarea-mirror" id="chatTextareaMirror" aria-hidden="true"></div>
+      <div class="chat-send-btn disabled" id="chatSendBtn">
+        <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" fill="#000"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bubble-ctx-overlay" id="bubbleCtxOverlay"></div>
+<div class="bubble-ctx-panel" id="bubbleCtxPanel">
+  <div class="bctx-msg-preview" id="bctxPreview"></div>
+  <div class="bctx-meta" id="bctxMeta"></div>
+  <div class="bctx-option" id="bctxReply">
+    <div class="bctx-icon"><svg viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg></div>
+    <div class="bctx-label">Responder</div>
+  </div>
+  <div class="bctx-option" id="bctxCopy">
+    <div class="bctx-icon"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div>
+    <div class="bctx-label">Copiar texto</div>
+  </div>
+  <div class="bctx-option" id="bctxEdit" style="display:none">
+    <div class="bctx-icon"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+    <div class="bctx-label">Editar mensaje</div>
+  </div>
+  <div class="bctx-option" id="bctxDeleteMe" style="display:none">
+    <div class="bctx-icon red"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/></svg></div>
+    <div class="bctx-label danger">Eliminar para mí</div>
+  </div>
+  <div class="bctx-option" id="bctxDeleteAll" style="display:none">
+    <div class="bctx-icon red"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/></svg></div>
+    <div class="bctx-label danger">Eliminar para todos</div>
+  </div>
+</div>
+
+<div class="chat-settings-overlay" id="chatSettingsOverlay"></div>
+<div class="chat-settings-panel" id="chatSettingsPanel">
+  <div class="csp-handle"></div>
+  <div class="csp-header">
+    <img class="csp-avatar" id="cspAvatar" src="" alt="">
+    <div class="csp-name" id="cspName"></div>
+    <div class="csp-status">Perfil del chat</div>
+  </div>
+  <div class="csp-section-title">Fondo del chat</div>
+  <div class="chat-bg-picker" id="chatBgPicker">
+    <div class="bg-swatch sw-default active" data-bg="bg-default"></div>
+    <div class="bg-swatch sw-dark" data-bg="bg-dark"></div>
+    <div class="bg-swatch sw-gradient" data-bg="bg-gradient"></div>
+    <div class="bg-swatch sw-blue" data-bg="bg-blue"></div>
+    <div class="bg-swatch sw-purple" data-bg="bg-purple"></div>
+    <div class="bg-swatch sw-rose" data-bg="bg-rose"></div>
+    <div class="bg-swatch sw-green" data-bg="bg-green"></div>
+    <div class="bg-swatch sw-custom" data-bg="bg-custom" id="bgSwatchCustom">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <div class="swatch-preview" id="bgSwatchPreview" style="display:none"></div>
+    </div>
+  </div>
+  <input type="file" id="chatBgFileInput" accept="image/png,image/jpeg,image/jpg,image/webp,.png,.jpg,.jpeg,.webp,image/*" style="display:none">
+  <div class="csp-section-title">Opciones</div>
+  <div class="csp-option" id="cspCallOpt">
+    <div class="csp-option-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.11h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.9-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+    <div class="csp-option-label">Llamar<span class="csp-option-sub">Llamada de voz</span></div>
+    <div class="csp-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+  </div>
+  <div class="csp-option" id="cspVideoOpt">
+    <div class="csp-option-icon"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+    <div class="csp-option-label">Videollamada<span class="csp-option-sub">Cámara activada</span></div>
+    <div class="csp-chevron"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+  </div>
+  <div class="csp-option" id="cspClearChat">
+    <div class="csp-option-icon red"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M9 6V4h6v2"/></svg></div>
+    <div class="csp-option-label danger">Limpiar conversación<span class="csp-option-sub" style="color:#e0245e">Elimina todos los mensajes</span></div>
+  </div>
+  <div style="height:20px"></div>
+</div>
+
+<div class="media-upload-overlay" id="mediaUploadOverlay"></div>
+<div class="media-upload-sheet" id="mediaUploadSheet">
+  <div class="mus-header"><div class="mus-handle"></div><div class="mus-title">Enviar</div></div>
+  <div class="mus-option" id="musTakePhoto">
+    <div class="mus-option-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+    <div><div class="mus-option-label">Tomar foto</div><div class="mus-option-sub">Cámara del dispositivo</div></div>
+  </div>
+  <div class="mus-option" id="musPickGallery">
+    <div class="mus-option-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+    <div><div class="mus-option-label">Foto o video</div><div class="mus-option-sub">Elige de tu galería</div></div>
+  </div>
+  <div class="mus-option" id="musPickVideo">
+    <div class="mus-option-icon"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+    <div><div class="mus-option-label">Clip de video</div><div class="mus-option-sub">Recortar y enviar</div></div>
+  </div>
+  <div class="mus-option" id="musExtractAudio">
+    <div class="mus-option-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+    <div><div class="mus-option-label">Extraer audio de video</div><div class="mus-option-sub">Solo envía el sonido</div></div>
+  </div>
+  <div class="mus-cancel" id="musCancel">Cancelar</div>
+</div>
+<input type="file" id="chatFileInput" accept="image/png,image/jpeg,image/jpg,image/webp,video/*,image/*" style="display:none">
+<input type="file" id="chatVideoInput" accept="video/*" style="display:none">
+<input type="file" id="chatAudioInput" accept="video/*,audio/*" style="display:none">
+
+<div class="video-trim-overlay" id="videoTrimOverlay">
+  <div class="vt-header">
+    <button class="vt-btn vt-cancel" id="vtCancel">Cancelar</button>
+    <div class="vt-title">Recortar video</div>
+    <button class="vt-btn vt-send" id="vtSend">Enviar</button>
+  </div>
+  <div class="vt-preview"><video class="vt-video" id="vtVideo" playsinline muted loop></video></div>
+  <div class="vt-controls">
+    <div class="vt-tabs">
+      <div class="vt-tab active" id="vtTabClip">Enviar clip</div>
+      <div class="vt-tab" id="vtTabAudio">Solo audio</div>
+    </div>
+    <div class="vt-timeline" id="vtTimeline">
+      <div class="vt-progress" id="vtProgress"></div>
+      <div class="vt-trim-handle vt-trim-start" id="vtTrimStart"></div>
+      <div class="vt-trim-handle vt-trim-end" id="vtTrimEnd"></div>
+    </div>
+    <div class="vt-time-label" id="vtTimeLabel">Duración: 0s</div>
+  </div>
+</div>
+
+<div class="call-overlay" id="callOverlay">
+  <video class="call-video-bg" id="callVideoBg" autoplay muted playsinline></video>
+  <div class="call-self-preview"><div class="call-self-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div></div>
+  <div class="call-top">
+    <img class="call-avatar-img" id="callAvatarImg" src="" alt="">
+    <div class="call-overlay-name" id="callOverlayName"></div>
+    <div class="call-overlay-status" id="callOverlayStatus">Llamando…</div>
+    <div class="call-timer-display" id="callTimerDisplay">0:00</div>
+  </div>
+  <div class="call-btns">
+    <div class="call-btn mute" id="callMuteBtn">
+      <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+    </div>
+    <div class="call-btn end-call" id="callEndBtn">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.11h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.9-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+    <div class="call-btn speaker" id="callSpeakerBtn">
+      <svg viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+    </div>
+    <div class="call-btn flip-cam" id="callFlipBtn" style="display:none">
+      <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+    </div>
+  </div>
+</div>
+
+<div class="share-sheet-overlay" id="shareSheetOverlay"></div>
+<div class="share-sheet" id="shareSheet">
+  <div class="share-sheet-header"><div class="share-sheet-handle"></div><div class="cd-title">Compartir</div></div>
+  <div class="share-sheet-copylink" id="shareCopyLinkBtn">
+    <span id="shareLinkPreview"></span>
+    <b>Copiar</b>
+  </div>
+  <div class="share-sheet-section-title">Enviar a</div>
+  <div class="share-apps-row" id="shareAppsRow"></div>
+  <div class="share-sheet-section-title">Contactos</div>
+  <input type="search" class="share-search" id="shareSearchInput" placeholder="Buscar personas…" autocomplete="off">
+  <div class="share-users-list" id="shareUsersList"></div>
+</div>
+
+<div class="app-toast" id="appToast">
+  <div class="app-toast-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+  <div class="app-toast-text" id="appToastText"></div>
+</div>
+
+<div class="floating-audio-pill" id="floatingAudioPill">
+  <div class="fap-play" id="fapPlayBtn"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/></svg></div>
+  <div class="fap-info">
+    <div class="fap-wave"><div class="fap-bar"></div><div class="fap-bar"></div><div class="fap-bar"></div><div class="fap-bar"></div><div class="fap-bar"></div></div>
+    <div class="fap-label" id="fapLabel">Nota de voz</div>
+  </div>
+  <div class="fap-close" id="fapCloseBtn"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></div>
+</div>
+
+<div class="quick-peek-overlay" id="quickPeekOverlay"></div>
+<div class="quick-peek-card" id="quickPeekCard">
+  <div class="qp-header">
+    <img class="qp-avatar" id="qpAvatar" src="" alt="">
+    <div class="qp-info"><div class="qp-name" id="qpName"></div><div class="qp-username" id="qpUsername"></div></div>
+  </div>
+  <div class="qp-bio" id="qpBio"></div>
+  <div class="qp-photos" id="qpPhotos"></div>
+  <div class="qp-viewprofile" id="qpViewProfile">Ver perfil completo</div>
+</div>
+
+<div class="comments-overlay" id="commentsOverlay"></div>
+<div class="comments-drawer" id="commentsDrawer">
+    <div class="cd-header">
+        <div class="cd-handle"></div>
+        <div class="cd-title">Comentarios</div>
+    </div>
+    <div class="cd-list" id="cdList"></div>
+    <div class="cd-reply-banner" id="cdReplyBanner" style="display:none;">
+        <span id="cdReplyText"></span>
+        <span class="cd-reply-cancel" id="cdReplyCancel">Cancelar</span>
+    </div>
+    <div class="cd-input-area">
+        <input type="text" id="cdInput" placeholder="Añade un comentario..." maxlength="500">
+        <div class="cd-send" id="cdSendBtn">Publicar</div>
+    </div>
+</div>
+
+<div class="create-overlay" id="createOverlay"></div>
+<div class="create-sheet" id="createSheet">
+  <div class="create-sheet-drag-zone">
+    <div class="create-sheet-handle"></div>
+    <div class="create-title">Crear</div>
+  </div>
+  <div class="create-option" data-type="post"><div class="create-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="create-text"><span class="label">Pulso</span><span class="sub">Comparte una foto o video</span></div></div>
+  <div class="create-option" data-type="story"><div class="create-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div><div class="create-text"><span class="label">Historia</span><span class="sub">Visible por 24 horas</span></div></div>
+  <div class="create-option" data-type="reel"><div class="create-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 8v8l6-4-6-4z"/></svg></div><div class="create-text"><span class="label">Reel</span><span class="sub">Crea un video corto</span></div></div>
+  <div class="create-cancel" id="createCancel">Cancelar</div>
+</div>
+<input type="file" id="fileInput" accept="image/*,video/*" style="display:none">
+<div class="settings-overlay" id="settingsOverlay"></div>
+<div class="settings-modal" id="settingsModal" role="dialog" aria-modal="true" aria-label="Ajustes">
+  <header class="fl-header">
+    <button class="circle-btn back" id="settingsBackBtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <h1 class="fl-title" id="settingsTitle">Ajustes</h1>
+    <div style="width:36px;"></div>
+  </header>
+  <div class="settings-body">
+
+    <div class="settings-screen active" id="settingsScreen-main">
+      <div class="settings-menu-item" data-settings-screen="activity">
+        <div class="smi-icon"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg></div>
+        <div class="smi-text"><span>Actividad</span><small>Me gusta y comentarios que hiciste</small></div>
+        <svg class="smi-chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+      </div>
+      <div class="settings-menu-item" data-settings-screen="saved">
+        <div class="smi-icon"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></div>
+        <div class="smi-text"><span>Guardados</span><small>Pulsos que guardaste</small></div>
+        <svg class="smi-chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+      </div>
+      <div class="settings-menu-item" data-settings-screen="privacy">
+        <div class="smi-icon"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div>
+        <div class="smi-text"><span>Privacidad</span><small>En línea, seguidores y seguidos</small></div>
+        <svg class="smi-chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+      </div>
+      <div class="settings-menu-item" data-settings-screen="archive">
+        <div class="smi-icon"><svg viewBox="0 0 24 24"><path d="M21 8v13H3V8"></path><path d="M1 3h22v5H1z"></path><line x1="10" y1="12" x2="14" y2="12"></line></svg></div>
+        <div class="smi-text"><span>Archivo</span><small>Historias y pulsos archivados</small></div>
+        <svg class="smi-chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+      </div>
+      <div class="settings-menu-item" data-settings-screen="personalization">
+        <div class="smi-icon"><svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2a10 10 0 1 0 0 20 2.5 2.5 0 0 0 0-5 2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 0 2.5-2.5A10 10 0 0 0 12 2z"></path></svg></div>
+        <div class="smi-text"><span>Personalización</span><small>Tema interactivo/sólido, claro/oscuro</small></div>
+        <svg class="smi-chev" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+      </div>
+    </div>
+
+    <div class="settings-screen" id="settingsScreen-activity">
+      <div class="settings-subtabs">
+        <button class="settings-subtab active" data-activity-tab="liked">Me gusta</button>
+        <button class="settings-subtab" data-activity-tab="commented">Comentados</button>
+      </div>
+      <div class="settings-media-grid" id="activityGrid"></div>
+    </div>
+
+    <div class="settings-screen" id="settingsScreen-saved">
+      <div class="settings-media-grid" id="savedGrid"></div>
+    </div>
+
+    <div class="settings-screen" id="settingsScreen-privacy">
+      <div class="settings-toggle-row">
+        <div class="smi-text"><span>Cuenta privada</span><small>Solo quienes aprueben podrán seguirte y ver tus pulsos</small></div>
+        <label class="settings-switch"><input type="checkbox" id="privacyPrivate"><span class="settings-switch-track"></span></label>
+      </div>
+      <div class="settings-toggle-row">
+        <div class="smi-text"><span>Mostrar cuando estás en línea</span><small>Otras personas verán tu punto verde de actividad</small></div>
+        <label class="settings-switch"><input type="checkbox" id="privacyShowOnline"><span class="settings-switch-track"></span></label>
+      </div>
+      <div class="settings-toggle-row">
+        <div class="smi-text"><span>Mostrar mis seguidores</span><small>Cualquiera podrá ver tu lista de seguidores</small></div>
+        <label class="settings-switch"><input type="checkbox" id="privacyShowFollowers"><span class="settings-switch-track"></span></label>
+      </div>
+      <div class="settings-toggle-row">
+        <div class="smi-text"><span>Mostrar mis seguidos</span><small>Cualquiera podrá ver a quién sigues</small></div>
+        <label class="settings-switch"><input type="checkbox" id="privacyShowFollowing"><span class="settings-switch-track"></span></label>
+      </div>
+    </div>
+
+    <div class="settings-screen" id="settingsScreen-archive">
+      <div class="settings-subtabs">
+        <button class="settings-subtab active" data-archive-tab="stories">Historias</button>
+        <button class="settings-subtab" data-archive-tab="pulsos">Pulsos</button>
+      </div>
+      <div class="settings-media-grid" id="archiveGrid"></div>
+    </div>
+
+    <div class="settings-screen" id="settingsScreen-personalization">
+      <div class="settings-section-title">Tipo de tema</div>
+      <div class="settings-option-row">
+        <button class="settings-option-btn active" id="themeTypeInteractive" data-theme-type="interactive">
+          <span class="sob-title">Interactivo</span>
+          <span class="sob-sub">Tonos según tus fotos y portadas</span>
+        </button>
+        <button class="settings-option-btn" id="themeTypeSolid" data-theme-type="solid">
+          <span class="sob-title">Sólido</span>
+          <span class="sob-sub">Blanco y negro, sin colores dinámicos</span>
+        </button>
+      </div>
+      <div class="settings-section-title">Modo</div>
+      <div class="settings-option-row">
+        <button class="settings-option-btn active" id="themeModeLight" data-theme-mode="light">
+          <span class="sob-title">Claro</span>
+          <span class="sob-sub" id="themeModeLightSub">Fondos claros, detalles oscuros</span>
+        </button>
+        <button class="settings-option-btn" id="themeModeDark" data-theme-mode="dark">
+          <span class="sob-title">Oscuro</span>
+          <span class="sob-sub" id="themeModeDarkSub">Fondos oscuros, detalles claros</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="follow-list-overlay" id="followListOverlay"></div>
+<div class="follow-list-modal" id="followListModal" role="dialog" aria-modal="true" aria-label="Lista de personas">
+  <header class="fl-header">
+    <button class="circle-btn back" id="flBackBtn" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <h1 class="fl-title" id="flTitle">Seguidores</h1>
+    <div style="width:36px;"></div>
+  </header>
+  <div class="fl-body" id="flBody"></div>
+</div>
+
+<div class="composer" id="composer" role="dialog" aria-modal="true" aria-label="Crear pulso">
+  <div class="composer-header">
+    <nav class="composer-navbar">
+      <button class="composer-close" id="composerClose" title="Regresar" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      </button>
+      <h1 class="composer-title" id="composerTitle">Nuevo Pulso</h1>
+      <button class="composer-menu-btn" id="composerMenuBtn" title="Menú">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+    </nav>
+  </div>
+
+  <div class="composer-body">
+    <div class="composer-dropzone" id="composerDropzone">
+      <div class="composer-dropzone-mascot" id="composerMascotSlot"></div>
+      <div class="composer-dropzone-text" id="composerDropzoneText">sube una imagen o video</div>
+    </div>
+    <div class="composer-preview" id="composerPreview"><div class="composer-remove" id="composerRemove"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></div></div>
+
+    <div class="composer-caption">
+      <div class="composer-caption-scroll">
+        <div id="composerCaptionDiv" contenteditable="true" data-placeholder="Escribe una descripción..." aria-label="Descripción del pulso"></div>
+      </div>
+    </div>
+    <textarea id="composerCaption" style="display:none" maxlength="2200"></textarea>
+
+    <div class="composer-toolbar" id="composerFormatBar">
+      <div class="composer-format-bar">
+        <button class="fmt-btn" id="fmtUnderline" title="Subrayar selección" onclick="document.execCommand('underline');document.getElementById('composerCaptionDiv').focus()"><u>S</u></button>
+        <button class="fmt-btn" id="fmtBold" title="Negrita" onclick="document.execCommand('bold');document.getElementById('composerCaptionDiv').focus()"><b>N</b></button>
+        <button class="fmt-btn" id="fmtItalic" title="Cursiva" onclick="document.execCommand('italic');document.getElementById('composerCaptionDiv').focus()"><i>C</i></button>
+      </div>
+      <div style="position:relative;">
+        <button class="composer-location-btn" id="composerLocationBtn" type="button">
+          <span id="composerLocationText">Ubicación</span>
+          <svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+        </button>
+        <div class="composer-location-menu" id="composerLocationMenu">
+          <button class="composer-loc-opt" type="button">CDMX, México</button>
+          <button class="composer-loc-opt" type="button">Guadalajara, Jal.</button>
+          <button class="composer-loc-opt" type="button">Monterrey, N.L.</button>
+          <button class="composer-loc-opt" type="button">Ubicación actual</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="composer-tag-row" id="composerTagRow">
+      <button class="composer-tag-btn" type="button" id="composerTagBtn">
+        <span>•</span>
+        <span>Etiqueta a personas</span>
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="composer-publish-wrap">
+    <button class="composer-publish" id="composerPublish" disabled>Publicar</button>
+  </div>
+</div>
+
+<script src="source/js/01-navegacion.js"></script>
+<script src="source/js/02-datos-tema-ajustes.js"></script>
+<script src="source/js/03-persistencia-offline.js"></script>
+<script src="source/js/04-perfil.js"></script>
+<script src="source/js/05-buscador-historias.js"></script>
+<script src="source/js/06-opciones-comentarios.js"></script>
+<script src="source/js/07-mensajeria.js"></script>
+<script src="source/js/08-compartir-compositor.js"></script>
+<script src="source/js/09-home-feed-quickpeek.js"></script>
+<script src="source/js/10-social.js"></script>
+<script src="source/js/11-aura.js"></script>
+<script src="source/js/12-extras.js"></script>
+<script src="source/js/13-ambient.js"></script>
+<script src="source/js/14-persistencia.js"></script>
+<script src="source/js/15-home.js"></script>
+<script src="source/js/16-redesign.js"></script>
+<script src="source/js/17-neutral.js"></script>
+<!-- Backend (Supabase): se activa solo si source/js/config.js tiene URL y clave -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="source/js/config.js"></script>
+<script src="source/js/lib/backend.js"></script>
+<script src="source/js/lib/sync-util.js"></script>
+<script src="source/js/18-auth.js"></script>
+<script src="source/js/19-sync-perfil.js"></script>
+<script src="source/js/20-sync-feed.js"></script>
+<script src="source/js/21-sync-relaciones.js"></script>
+<script src="source/js/22-sync-notificaciones.js"></script>
+<script src="source/js/23-sync-comentarios.js"></script>
+<script src="source/js/24-sync-historias.js"></script>
+<script src="source/js/25-sync-busqueda-cuenta.js"></script>
+<script src="source/js/26-sync-mensajes.js"></script>
+<script src="source/js/27-sync-listas.js"></script>
+<script src="source/js/28-sync-reels.js"></script>
+<script src="source/js/29-comunidades.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+/* Pulido visual: microinteracciones, carga de imágenes, accesibilidad, Aura */
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+::selection{background:rgba(120,120,255,.28)}
+:focus-visible{outline:2px solid var(--accent-dynamic,#0a66ff);outline-offset:2px;border-radius:8px}
+button,[role=button],.nav-icon,.mas,.notif-btn{touch-action:manipulation}
+/* Imágenes: esqueleto con shimmer y aparición suave al cargar */
+img.sv-loading{background:linear-gradient(110deg,#2a2a2a 30%,#3a3a3a 50%,#2a2a2a 70%);background-size:200% 100%;animation:sv-shimmer 1.2s linear infinite}
+img.sv-fade{opacity:0;transition:opacity .35s ease}
+img.sv-fade.sv-in{opacity:1}
+@keyframes sv-shimmer{to{background-position:-200% 0}}
+/* Las tarjetas fuera de pantalla no se pintan: scroll más fluido */
+#feedContainer .post{content-visibility:auto;contain-intrinsic-size:auto 560px}
+.post{box-shadow:0 1px 0 rgba(0,0,0,.04),0 8px 24px -12px rgba(0,0,0,.18)}
+.navbar .nav-icon{transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.navbar .nav-icon:active{transform:scale(.82)}
+.search-result-item{transition:background .15s}
+.search-result-item:active{background:rgba(0,0,0,.06)}
+/* Aura / Explorar */
+.aura-panel{padding:4px 12px 96px;overflow-y:auto;flex:1;min-height:0}
+.aura-panel[hidden]{display:none}
+.aura-chips{display:flex;gap:8px;overflow-x:auto;padding:6px 4px 12px;scrollbar-width:none}
+.aura-chips::-webkit-scrollbar{display:none}
+.aura-chip{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;border:1.5px solid rgba(0,0,0,.12);background:rgba(255,255,255,.7);font:600 13px/1 inherit;font-family:inherit;color:#111;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.aura-chip:active{transform:scale(.94)}
+.aura-chip.on{background:#000;color:#fff;border-color:#000}
+.aura-chip i{width:10px;height:10px;border-radius:50%;display:block;background:var(--c,#999);box-shadow:0 0 0 1.5px rgba(255,255,255,.6) inset}
+.aura-chip small{opacity:.6;font-weight:600}
+.aura-grid{columns:2;column-gap:10px}
+.aura-tile{break-inside:avoid;margin:0 0 10px;border-radius:18px;overflow:hidden;position:relative;cursor:pointer;background:var(--tile,#444);transform:translateZ(0);animation:aura-in .4s both}
+.aura-tile img{display:block;width:100%;height:auto;aspect-ratio:var(--ar,4/5);object-fit:cover}
+.aura-tile span{position:absolute;left:8px;bottom:8px;padding:4px 9px;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;font-weight:600;backdrop-filter:blur(6px)}
+.aura-empty{padding:40px 16px;text-align:center;color:#777;font-size:14px}
+@keyframes aura-in{from{opacity:0;transform:translateY(10px) scale(.98)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
