@@ -1,5 +1,5 @@
 /* Service Worker de socialinv: funciona sin conexión y reenvía la cola de mensajes. */
-const VERSION = 'socialinv-v24';
+const VERSION = 'socialinv-v1.1.2';
 const SHELL = [
   './', './index.html', './styles.css', './manifest.json',
   './source/css/social.css', './source/css/polish.css', './source/css/Generales.css',
